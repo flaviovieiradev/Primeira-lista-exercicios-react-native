@@ -4,7 +4,8 @@ import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
 const HomeScreen = ({ navigation }) => {
 
     const handleButtonClick = (option) => {
-        //implementando a lógica só para o botão de Promoções 
+        //implementando a lógica para os botoões. Cada botão corresponde
+        //a um exercício.
         if (option === 'Exercício 01') {
             navigation.navigate('Ex01');
         }
@@ -19,6 +20,12 @@ const HomeScreen = ({ navigation }) => {
         }
         if (option === 'Exercício 05') {
             navigation.navigate('Ex05');
+        } 
+        if (option === 'Exercício 06') {
+            navigation.navigate('Ex06');
+        }
+        if (option === 'Exercício 07') {
+            navigation.navigate('Ex07');
         } else {
             // Implemente a navegação ou a lógica associada a cada outro botão 
             console.log(`Botão ${option} pressionado`);
@@ -55,10 +62,16 @@ const HomeScreen = ({ navigation }) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.button} onPress={() =>
-                    handleButtonClick('Acessórios')}>
-                    <Text style={styles.buttonText}>Acessórios</Text>
+                    handleButtonClick('Exercício 06')}>
+                    <Text style={styles.buttonText}>Exercício 06</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button} onPress={() =>
+                    handleButtonClick('Exercício 07')}>
+                    <Text style={styles.buttonText}>Exercício 07</Text>
                 </TouchableOpacity>
             </View>
+
         </View>);
 };
 
