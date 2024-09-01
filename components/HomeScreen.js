@@ -10,6 +10,9 @@ const HomeScreen = ({ navigation }) => {
         }
         if (option === 'Exercício 02') {
             navigation.navigate('Ex02');
+        }
+        if (option === 'Exercício 03') {
+            navigation.navigate('Ex03');
         } else {
             // Implemente a navegação ou a lógica associada a cada outro botão 
             console.log(`Botão ${option} pressionado`);
@@ -31,8 +34,8 @@ const HomeScreen = ({ navigation }) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.button} onPress={() =>
-                    handleButtonClick('Calças')}>
-                    <Text style={styles.buttonText}>Calças</Text>
+                    handleButtonClick('Exercício 03')}>
+                    <Text style={styles.buttonText}>Exercício 03</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.button} onPress={() =>

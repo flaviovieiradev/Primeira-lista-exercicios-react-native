@@ -97,3 +97,24 @@ const styles = StyleSheet.create({
 
 
 export default Ex02Screen;
+
+/*
+
+Explicação do Código
+
+1. Dados de Filmes: Uma estrutura de dados (moviesData) que contém gêneros de filmes e listas de filmes correspondentes.
+
+2. Estados:
+  selectedGenres: Um array que armazena os gêneros selecionados pelo usuário.
+  suggestedMovies: Um array que armazena os filmes recomendados com base nos gêneros selecionados.
+
+3. Função toggleGenre: Esta função adiciona ou remove gêneros da lista de gêneros selecionados quando o usuário interage com a checkbox correspondente.
+
+4. Função suggestMovies: Quando o usuário clica no botão "Sugerir Filmes", esta função compila uma lista de filmes com base nos gêneros selecionados.
+
+5. Interface do Usuário:
+  Exibe um título e uma lista de checkboxes para que o usuário selecione seus gêneros favoritos.
+  Um botão que, ao ser pressionado, sugere filmes com base nas escolhas do usuário.
+  Uma lista de filmes recomendados é exibida quando disponível.
+
+*/
