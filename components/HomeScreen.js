@@ -13,6 +13,9 @@ const HomeScreen = ({ navigation }) => {
         }
         if (option === 'Exercício 03') {
             navigation.navigate('Ex03');
+        }
+        if (option === 'Exercício 04') {
+            navigation.navigate('Ex04');
         } else {
             // Implemente a navegação ou a lógica associada a cada outro botão 
             console.log(`Botão ${option} pressionado`);
@@ -20,7 +23,7 @@ const HomeScreen = ({ navigation }) => {
     };
     return (
         <View style={styles.container}>
-            
+
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() =>
@@ -39,6 +42,11 @@ const HomeScreen = ({ navigation }) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.button} onPress={() =>
+                    handleButtonClick('Exercício 04')}>
+                    <Text style={styles.buttonText}>Exercício 04</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button} onPress={() =>
                     handleButtonClick('Camisas')}>
                     <Text style={styles.buttonText}>Camisas</Text>
                 </TouchableOpacity>
@@ -52,33 +60,33 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    container: { 
-        flex: 1, 
-    }, 
-    imageContainer: { 
-        flex: 0.5, 
-    }, 
-    image: { 
-        flex: 1, 
-        resizeMode: 'cover', 
-    }, 
+    container: {
+        flex: 1,
+    },
+    imageContainer: {
+        flex: 0.5,
+    },
+    image: {
+        flex: 1,
+        resizeMode: 'cover',
+    },
     buttonContainer: {
         flex: 0.5,
-        padding: 16, 
-        justifyContent: 'space-around', 
+        padding: 16,
+        justifyContent: 'space-around',
         alignItems: 'center',
-    }, 
-    button: { 
-        backgroundColor: '#3498db', 
-        padding: 15, 
-        borderRadius: 5, 
-        width: '80%', 
-        alignItems: 'center', 
-    }, 
-    buttonText: { 
-        color: '#fff', 
-        fontSize: 18, 
     },
-}); 
+    button: {
+        backgroundColor: '#3498db',
+        padding: 15,
+        borderRadius: 5,
+        width: '80%',
+        alignItems: 'center',
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 18,
+    },
+});
 
 export default HomeScreen;
