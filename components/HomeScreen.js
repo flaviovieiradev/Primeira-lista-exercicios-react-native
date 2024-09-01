@@ -5,11 +5,11 @@ const HomeScreen = ({ navigation }) => {
 
     const handleButtonClick = (option) => {
         //implementando a lógica só para o botão de Promoções 
-        if (option === 'Promoções') {
-            navigation.navigate('Promocoes');
-        }
         if (option === 'Exercício 01') {
             navigation.navigate('Ex01');
+        }
+        if (option === 'Exercício 02') {
+            navigation.navigate('Ex02');
         } else {
             // Implemente a navegação ou a lógica associada a cada outro botão 
             console.log(`Botão ${option} pressionado`);
@@ -26,8 +26,8 @@ const HomeScreen = ({ navigation }) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.button} onPress={() =>
-                    handleButtonClick('Promoções')}>
-                    <Text style={styles.buttonText}>Promoções</Text>
+                    handleButtonClick('Exercício 02')}>
+                    <Text style={styles.buttonText}>Exercício 02</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.button} onPress={() =>
