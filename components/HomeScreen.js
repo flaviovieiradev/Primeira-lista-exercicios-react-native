@@ -7,6 +7,9 @@ const HomeScreen = ({ navigation }) => {
         //implementando a lógica só para o botão de Promoções 
         if (option === 'Promoções') {
             navigation.navigate('Promocoes');
+        }
+        if (option === 'Exercício 01') {
+            navigation.navigate('Ex01');
         } else {
             // Implemente a navegação ou a lógica associada a cada outro botão 
             console.log(`Botão ${option} pressionado`);
@@ -14,14 +17,12 @@ const HomeScreen = ({ navigation }) => {
     };
     return (
         <View style={styles.container}>
-            <View style={styles.imageContainer}>
-                <Image source={require('../src/assets/fundo.jpg')} style={styles.image} />
-            </View>
+            
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() =>
-                    handleButtonClick('Home')}>
-                    <Text style={styles.buttonText}>Home</Text>
+                    handleButtonClick('Exercício 01')}>
+                    <Text style={styles.buttonText}>Exercício 01</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.button} onPress={() =>
