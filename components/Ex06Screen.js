@@ -1,106 +1,116 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, FlatList } from 'react-native';
 
-const Ex06Screen = () => {
+const App = () => {
   const [activity, setActivity] = useState('');
   const [duration, setDuration] = useState('');
   const [goal, setGoal] = useState('');
+  const [activities, setActivities] = useState([]);
   const [feedback, setFeedback] = useState('');
 
-  const handleTrackActivity = () => {
-    const durationNum = parseInt(duration, 10);
-    const goalNum = parseInt(goal, 10);
-
-    if (isNaN(durationNum) || isNaN(goalNum) || durationNum <= 0 || goalNum <= 0) {
-      setFeedback('Por favor, insira valores válidos.');
+  const handleAddActivity = () => {
+    const activityDuration = Number(duration);
+    if (!activity || isNaN(activityDuration)) {
+      setFeedback('Por favor, insira uma atividade válida e a duração em minutos.');
       return;
     }
 
-    let message = `Você registrou ${durationNum} minutos de ${activity}. `;
-
-    if (durationNum >= goalNum) {
-      message += 'Ótimo trabalho! Você atingiu sua meta!';
-    } else {
-      message += `Você está a ${goalNum - durationNum} minutos da sua meta. Continue se esforçando!`;
-    }
-
-    suggestExercise(durationNum, goalNum);
-    setFeedback(message);
+    setActivities([...activities, { activity, duration: activityDuration }]);
     setActivity('');
     setDuration('');
+    provideFeedback(activityDuration);
   };
 
-  const suggestExercise = (durationNum, goalNum) => {
-    if (goalNum - durationNum > 30) {
-      setFeedback((prev) => `${prev}\nSugestão: Considere adicionar exercícios de alta intensidade, como HIIT, para maximizar seu tempo.`);
-    } else if (goalNum - durationNum <= 30 && goalNum - durationNum > 0) {
-      setFeedback((prev) => `${prev}\nSugestão: Tente alongamentos ou caminhadas leves para ajudar a atingir sua meta.`);
+  const provideFeedback = (activityDuration) => {
+    if (goal === 'perder peso' && activityDuration >= 30) {
+      setFeedback('Bom trabalho! Continue assim para alcançar seu objetivo de perda de peso.');
+    } else if (goal === 'ganhar massa muscular' && activityDuration >= 45) {
+      setFeedback('Excelente! Você está no caminho certo para ganhar massa muscular.');
+    } else if (goal === 'manter forma' && activityDuration >= 20) {
+      setFeedback('Ótimo trabalho! Manter-se ativo é importante para a saúde.');
     } else {
-      setFeedback((prev) => `${prev}\nSugestão: Mantenha-se ativo e varie suas atividades para evitar a monotonia.`);
+      setFeedback('Continue se esforçando! Cada minuto conta.');
     }
   };
 
+  const renderActivity = ({ item }) => (
+    <Text style={styles.activityText}>{item.activity} - {item.duration} minutos</Text>
+  );
+
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>Rastreador de Atividades Físicas</Text>
 
+      <Text style={styles.label}>Atividade:</Text>
       <TextInput
         style={styles.input}
-        placeholder="Atividade (Ex: Corrida, Yoga)"
         value={activity}
         onChangeText={setActivity}
       />
 
+      <Text style={styles.label}>Duração (minutos):</Text>
       <TextInput
         style={styles.input}
-        placeholder="Duração (minutos)"
         keyboardType="numeric"
         value={duration}
         onChangeText={setDuration}
       />
 
+      <Text style={styles.label}>Objetivo (perder peso, ganhar massa muscular, manter forma):</Text>
       <TextInput
         style={styles.input}
-        placeholder="Meta de Duração (minutos)"
-        keyboardType="numeric"
         value={goal}
         onChangeText={setGoal}
       />
 
-      <Button title="Registrar Atividade" onPress={handleTrackActivity} />
+      <Button title="Adicionar Atividade" onPress={handleAddActivity} />
 
-      {feedback ? (
-        <Text style={styles.feedback}>{feedback}</Text>
-      ) : null}
-    </ScrollView>
+      {feedback ? <Text style={styles.feedback}>{feedback}</Text> : null}
+
+      <FlatList
+        data={activities}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={renderActivity}
+        style={styles.activityList}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     padding: 20,
     backgroundColor: '#f5f5f5',
   },
   title: {
     fontSize: 24,
-    marginBottom: 20,
     textAlign: 'center',
+    marginBottom: 20,
+  },
+  label: {
+    marginVertical: 10,
+    fontSize: 16,
   },
   input: {
-    height: 40,
-    borderColor: '#ccc',
     borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    borderRadius: 5,
     marginBottom: 15,
-    paddingHorizontal: 10,
   },
   feedback: {
-    fontSize: 18,
+    marginVertical: 15,
+    fontSize: 16,
+    color: 'green',
+  },
+  activityList: {
     marginTop: 20,
-    textAlign: 'center',
-    color: 'blue',
+  },
+  activityText: {
+    fontSize: 16,
+    padding: 5,
   },
 });
 
-export default Ex06Screen;
+export default App;

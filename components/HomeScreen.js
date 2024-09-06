@@ -20,16 +20,16 @@ const HomeScreen = ({ navigation }) => {
         }
         if (option === 'Exercício 05') {
             navigation.navigate('Ex05');
-        } 
+        }
         if (option === 'Exercício 06') {
             navigation.navigate('Ex06');
         }
         if (option === 'Exercício 07') {
             navigation.navigate('Ex07');
-        } else {
-            // Implemente a navegação ou a lógica associada a cada outro botão 
-            console.log(`Botão ${option} pressionado`);
-        };
+        }
+        if (option === 'Exercício 08') {
+            navigation.navigate('Ex08');
+        }
     };
     return (
         <View style={styles.container}>
@@ -70,6 +70,11 @@ const HomeScreen = ({ navigation }) => {
                     handleButtonClick('Exercício 07')}>
                     <Text style={styles.buttonText}>Exercício 07</Text>
                 </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button} onPress={() =>
+                    handleButtonClick('Exercício 08')}>
+                    <Text style={styles.buttonText}>Exercício 08</Text>
+                </TouchableOpacity>
             </View>
 
         </View>);
@@ -78,31 +83,25 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    imageContainer: {
-        flex: 0.5,
-    },
-    image: {
-        flex: 1,
-        resizeMode: 'cover',
+        justifyContent: 'center', // Centraliza os botões verticalmente
+        padding: 16,        
     },
     buttonContainer: {
-        flex: 0.5,
-        padding: 16,
-        justifyContent: 'space-around',
-        alignItems: 'center',
+        flex: 1,
+        justifyContent: 'space-evenly', // Espaçamento uniforme entre os botões        
     },
     button: {
         backgroundColor: '#3498db',
         padding: 15,
         borderRadius: 5,
-        width: '80%',
+        flex: 1, // Faz com que o botão preencha o espaço disponível
         alignItems: 'center',
+        margin: 7,
     },
     buttonText: {
         color: '#fff',
         fontSize: 18,
-    },
+    }
 });
 
 export default HomeScreen;

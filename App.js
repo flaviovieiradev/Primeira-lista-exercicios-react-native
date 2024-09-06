@@ -9,6 +9,7 @@ import Ex04Screen from './components/Ex04Screen';
 import Ex05Screen from './components/Ex05Screen';
 import Ex06Screen from './components/Ex06Screen';
 import Ex07Screen from './components/Ex07Screen';
+import Ex08Screen from './components/Ex08Screen';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +17,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen}>
+        <Stack.Screen name="Home - Primeira Lista" component={HomeScreen}>
         </Stack.Screen>
         <Stack.Screen name="Ex01" component={Ex01Screen}>
         </Stack.Screen>
@@ -31,6 +32,8 @@ const App = () => {
         <Stack.Screen name="Ex06" component={Ex06Screen}>
         </Stack.Screen>
         <Stack.Screen name="Ex07" component={Ex07Screen}>
+        </Stack.Screen>
+        <Stack.Screen name="Ex08" component={Ex08Screen}>
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

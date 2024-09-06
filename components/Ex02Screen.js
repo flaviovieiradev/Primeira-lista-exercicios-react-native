@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, FlatList, CheckBox } from 'react-native';
 
+
 const moviesData = {
-  Action: ['Mad Max: Estrada da Fúria', 'John Wick', 'Duro de Matar'],
-  Commedy: ['Ace Ventura', 'Meu Malvado Favorito', 'Se Beber Não Case'],
+  Ação: ['Mad Max: Estrada da Fúria', 'John Wick', 'Duro de Matar'],
+  Comédia: ['Ace Ventura', 'Meu Malvado Favorito', 'Se Beber Não Case'],
   Drama: ['O Pior Vizinho do Mundo', 'Forrest Gump', 'Parasita'],
-  Horror: ['Alien: Romulus', 'O Exorcista', 'It: A coisa'],
+  Terror: ['Alien: Romulus', 'O Exorcista', 'It: A coisa'],
   Romance: ['Todos Menos Você', 'Como Eu Era Antes de Você', 'La La Land'],
 };
 
