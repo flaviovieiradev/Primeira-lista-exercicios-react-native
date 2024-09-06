@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, Button, FlatList } from 'react-native';
 
-const App = () => {
+const Ex06Screen = () => {
   const [activity, setActivity] = useState('');
   const [duration, setDuration] = useState('');
   const [goal, setGoal] = useState('');
@@ -113,4 +113,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Ex06Screen;
